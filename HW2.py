@@ -9,12 +9,20 @@ def remove_dublicates(somelist):
     return res
 
 
-s = input("> ")
-s = s.split(' ')
-# substr = list(dict.fromkeys(s))  
-# ^ shuffle values
-substr = s
-while '' in substr:
-    substr.remove('')
-substr = remove_dublicates(substr)
-print(' '.join(substr))
+def remove_empty(somelist):
+    assert isinstance(somelist, list)
+    while '' in somelist:
+        somelist.remove('')
+
+def main():
+    s = input("> ")
+    s = s.split(' ')
+    # substr = list(dict.fromkeys(s))  
+    # ^ shuffle values
+    substr = s
+    remove_empty(substr)
+    substr = remove_dublicates(substr)
+    print(' '.join(substr))
+
+if __name__ == "__main__":
+    main()
