@@ -8,19 +8,12 @@ def remove_dublicates(somelist):
             res.append(somelist[i])
     return res
 
-
-def remove_empty(somelist):
-    assert isinstance(somelist, list)
-    while '' in somelist:
-        somelist.remove('')
-
 def main():
     s = input("> ")
-    s = s.split(' ')
+    s = s.split()
     # substr = list(dict.fromkeys(s))  
     # ^ shuffle values
     substr = s
-    remove_empty(substr)
     substr = remove_dublicates(substr)
     print(' '.join(substr))
 
