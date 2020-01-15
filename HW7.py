@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.8
 
 """
     Напишите программу, которая читает данные из файлов
@@ -16,12 +16,11 @@ def main():
     passwd = open('/etc/passwd', 'r')
     groups = open('/etc/group', 'r')
     lines = passwd.readlines()
-    # id_s = dict.fromkeys([x.strip().split(':')[2] for x in lines], [])
-    id_s = {}
+    id_s = {}   # store user id in format (login, id)
     for i in lines:
-        temp_p = i.strip().split(':')
-        id_s[temp_p[0]] = temp_p[2]
-    temp = [x.strip().split(':')[6] for x in lines]
+        temp_l = i.strip().split(':')
+        id_s[temp_l[0]] = temp_l[2]
+    temp = [x.strip().split(':')[6] for x in lines] # list of all interpretators
     interps = dict.fromkeys(temp, 0)
     for item in temp: 
         interps[item] += 1
@@ -29,13 +28,10 @@ def main():
         .format(" ; "\
         .join([str(x) + ' - ' + str(interps[x]) for x in interps.keys()])))
     lines = groups.readlines()
-    # group_names = [x.strip().split(':')[0] for x in lines]
-    # group_users = dict.fromkeys(group_names, [])
-    group_users = {}
+    group_users = {}    # store groups in format (group name, list of group users logins)
     for item in lines:
         temp = item.strip().split(':')
-        # group_names.append()
-        if temp[3] != '':
+        if temp[3] != '': # if group users list isn't empty
             group_users[temp[0]] = temp[3].split(',')
     print('( {} )'\
         .format(', '\
