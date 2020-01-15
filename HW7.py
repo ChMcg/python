@@ -38,9 +38,6 @@ def main():
         .join(['{}:{}'\
         .format(x, ','.join([id_s[name] for name in group_users[x]])) for x in group_users.keys()])))
 
-    
-    
-    
 
 if __name__ == "__main__":
     main()
