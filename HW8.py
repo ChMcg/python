@@ -14,15 +14,14 @@
     3.При получении в качестве вводных данных 'cancel' завершает свою работу.
 """
 
-def a(number: str) -> int:
-    # if number == '': return 1
+def parse(number: str) -> int:
     try:
         res = int(number[::-1][:1])
     except ValueError:
         raise ValueError
     if number[:len(number)-1] == '': 
         return res
-    return 10*a(number[:len(number)-1]) + res
+    return 10*parse(number[:len(number)-1]) + res
 
 def main():
     while True:
@@ -33,7 +32,7 @@ def main():
 
         num = 0
         try: 
-            num = a(input_str)
+            num = parse(input_str)
         except ValueError: 
             print('Не удалось преобразовать введённый текст в число')
             continue
