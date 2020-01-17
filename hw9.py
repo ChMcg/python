@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.8
 from datetime import datetime
 from functools import reduce
-
+import typing
 """
 
 """
@@ -30,17 +30,27 @@ def problem6() -> int:
     (1+2+...+10)^2=55^2=3025
     Hence the difference between the sum of the squares of the first ten natural numbers and
     the square of the sum is 3025−385=2640.
+
     Find the difference between the sum of the squares of the first one hundred natural
     numbers and the square of the sum.
     """
-    return 0
+    return sum([x for x in range(100+1)])**2 - sum([x**2 for x in range(100+1)])
 
-def main():
+
+def meas(s: str, func) -> None:
     start = datetime.now()
-    print(f'p9: {problem9()}')
+    print(f'{s}: {func()}')
     stop = datetime.now()
     print(f'Время: {stop - start}')
 
+
+def main():
+    # start = datetime.now()
+    # print(f'p9: {problem9()}')
+    # stop = datetime.now()
+    # print(f'Время: {stop - start}')
+    meas('Problem 9', problem9)
+    meas('Problem 6', problem6)
 
 
 if __name__ == "__main__":
