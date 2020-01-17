@@ -17,9 +17,10 @@ def main():
     groups = open('/etc/group', 'r')
     lines = passwd.readlines()
     id_s = {}   # store user id in format (login, id)
-    for i in lines:
-        temp_l = i.strip().split(':')
-        id_s[temp_l[0]] = temp_l[2]
+    id_s = dict(zip([x.strip().split(':')[0] for x in lines], [x.strip().split(':')[2] for x in lines]))
+    # for i in lines:
+    #     temp_l = i.strip().split(':')
+    #     id_s[temp_l[0]] = temp_l[2]
     temp = [x.strip().split(':')[6] for x in lines] # list of all interpretators
     interps = dict.fromkeys(temp, 0)
     for item in temp: 
