@@ -1,9 +1,16 @@
 #!/usr/bin/env python3.8
 from datetime import datetime
 from functools import reduce
-import typing
-"""
 
+"""
+    Решить несколько задач из projecteuler.net
+
+    Решения должны быть максимально лаконичными, и использовать list comprehensions.
+
+    problem9 - list comprehension : one line
+    problem6 - list comprehension : one line
+    problem48 - list comprehension : one line
+    problem40 - list comprehension
 """
 
 def problem9() -> int:
@@ -37,6 +44,31 @@ def problem6() -> int:
     """
     return sum([x for x in range(100+1)])**2 - sum([x**2 for x in range(100+1)])
 
+def problem48() -> int:
+    """
+    Problem 48
+        The series, 1^1 + 2^2 + 3^3 + ... + 10^10 = 10405071317.
+        Find the last ten digits of the series, 1^1 + 2^2 + 3^3 + ... + 1000^1000
+    """
+    return int(str(sum([x**x for x in range(1,1000+1)]))[::-1][:10][::-1])
+
+def problem40() -> int:
+    """
+    Problem 40
+        An irrational decimal fraction is created by concatenating the positive integers:
+
+        0.12345678910`1`112131415161718192021...
+
+        It can be seen that the 12^th digit of the fractional part is 1.
+
+        If d_n represents the n^th digit of the fractional part, find the value of the following expression.
+
+        d_1 × d_10 × d_100 × d_1000 × d_10000 × d_100000 × d_1000000
+    """
+    # some = reduce(lambda x, y: x + str(y), [a for a in range(1_000_000)], "")
+    # some = reduce(lambda x, y: x + [int(c) for c in y], [str(a) for a in range(1_000_000)], [])
+    some = reduce(lambda x, y: x + y, [[int(k) for k in str(a)] for a in range(1_000_000)], [])
+    return int(some[1]) * int(some[10]) * int(some[100]) * int(some[1000]) * int(some[10000]) * int(some[100000]) * int(some[1000000])
 
 def meas(name: str, func) -> None:
     start = datetime.now()
@@ -46,8 +78,10 @@ def meas(name: str, func) -> None:
 
 
 def main():
-    meas('Problem 9', problem9)
-    meas('Problem 6', problem6)
+    # meas('Problem 9 ', problem9)
+    # meas('Problem 6 ', problem6)
+    # meas('Problem 48', problem48)
+    meas('Problem 40', problem40)
 
 
 if __name__ == "__main__":
