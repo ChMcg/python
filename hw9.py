@@ -78,9 +78,9 @@ def meas(name: str, func) -> None:
 
 
 def main():
-    # meas('Problem 9 ', problem9)
-    # meas('Problem 6 ', problem6)
-    # meas('Problem 48', problem48)
+    meas('Problem 9 ', problem9)
+    meas('Problem 6 ', problem6)
+    meas('Problem 48', problem48)
     meas('Problem 40', problem40)
 
 
