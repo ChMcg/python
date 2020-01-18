@@ -23,7 +23,9 @@
     Коллатца необходимых для достижения этим числом единицы.
 """
 
-def some(num: int) -> int:
+
+def calc(num: int) -> int:
+    if num < 1: return -1
     i = 0
     while num != 1:
         if num % 2 == 0: num = num //2
@@ -32,8 +34,15 @@ def some(num: int) -> int:
     return i
 
 
+def calc_my(nums: list):
+    if len(nums) == 0: return
+    max_len = max([len(str(x)) for x in nums])
+    for x in nums:
+        print(f'calc({x:{max_len}}) = {calc(x):{max_len}}')
+        
+
 def main():
-    pass
+    calc_my([12, 6, 3, 10, 5])
 
 
 if __name__ == "__main__":
