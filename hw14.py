@@ -28,6 +28,9 @@ class Employee:
 
 
 def main():
+    if 'temp' not in os.listdir('.'):
+        os.system('mkdir temp')
+    
     newpid = os.fork()
     if newpid == 0:                             # child
         a = Employee('First', 100)
@@ -42,6 +45,7 @@ def main():
             print('Error')
             return
         b.print_salary_info()
+        os.system('rm -rf temp')
     return
     
 
