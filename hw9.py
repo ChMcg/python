@@ -25,7 +25,7 @@ def problem9() -> int:
         Find the product abc.
     """
     return reduce(lambda x,y: x*y,
-                  [(a,b,c) for c in range(1000) for b in range(c) for a in range(b) if a**2 == (c-b)*(c+b) and a + b + c == 1000][0])
+                  [(a,b, 1000-(a+b)) for b in range(500) for a in range(b) if a**2 + b**2 == (1000-(a+b))**2][0])
 
 def problem6() -> int:
     """
