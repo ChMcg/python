@@ -68,9 +68,8 @@ def problem40() -> int:
     # some = reduce(lambda x, y: x + str(y), [a for a in range(1_000_000)], "")
     # some = reduce(lambda x, y: x + [int(c) for c in y], [str(a) for a in range(1_000_000)], [])
     # some = reduce(lambda x, y: x + y, [[int(k) for k in str(a)] for a in range(1_000_000)], [])
-    some = [[int(k) for k in str(a)] for a in range(1_000_000)]
-    some = reduce(lambda x, y: x + y, some, [])
-    return int(some[1]) * int(some[10]) * int(some[100]) * int(some[1000]) * int(some[10000]) * int(some[100000]) * int(some[1000000])
+    some = str(''.join([str(a) for a in range(1_000_000)]))
+    return reduce(lambda x, y: x*y, [int(some[10**a]) for a in range(7)])
 
 def meas(name: str, func) -> None:
     start = datetime.now()
