@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from hw9 import meas
 
 # https://projecteuler.net/problem=36
 #---------------------------------------------------------------------------------------------------#
@@ -30,7 +31,8 @@ def main():
             # print(f"{num} ", end='')
             result += num
     # print()
-    print(f"{result}")
+    # print(f"{result}")
+    return result
     
 if __name__ == "__main__":
-    main()
+    meas('Problem 36', main)
