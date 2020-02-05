@@ -16,11 +16,7 @@ def main():
     passwd = open('/etc/passwd', 'r')
     groups = open('/etc/group', 'r')
     lines = passwd.readlines()
-    id_s = {}   # store user id in format (login, id)
     id_s = dict(zip([x.strip().split(':')[0] for x in lines], [x.strip().split(':')[2] for x in lines]))
-    # for i in lines:
-    #     temp_l = i.strip().split(':')
-    #     id_s[temp_l[0]] = temp_l[2]
     temp = [x.strip().split(':')[6] for x in lines] # list of all interpretators
     interps = dict.fromkeys(temp, 0)
     for item in temp: 
@@ -32,8 +28,11 @@ def main():
     group_users = {}    # store groups in format (group name, list of group users logins)
     for item in lines:
         temp = item.strip().split(':')
+        group_users[temp[0]] = []
+        if temp[0] in id_s.keys():
+            group_users[temp[0]] += [temp[0],]
         if temp[3] != '': # if group users list isn't empty
-            group_users[temp[0]] = temp[3].split(',')
+            group_users[temp[0]] += temp[3].split(',')
     print('( {} )'\
         .format(', '\
         .join(['{}:{}'\
