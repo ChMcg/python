@@ -9,6 +9,7 @@
 | [hw12.py](./hw12.py) | [`2861190`](https://github.com/ChMcg/python/commit/28611901ca7c9f24621dfd3c6fcfbe477c74ab1b) | Добавил нерекурсивную функцию
 | [hw15.py](./hw15.py) | - | На проверку
 | [hw16.py](./hw16.py) | - | На проверку
+| [hw17.py](./hw17.py) | - | На проверку
 
 
 
