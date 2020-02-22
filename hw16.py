@@ -23,7 +23,7 @@ def form_degrees(in_str: str) -> float:
         return float(a[0]) + float('0.' + a[1])
 
 def get_input() -> list:
-    f = open('hw16_input.txt', 'r')
+    f = open('src/hw16_input.txt', 'r')
     lines = f.readlines()
     ret = [[form_degrees(a) for a in x.split(';')] for x in lines]
     return ret

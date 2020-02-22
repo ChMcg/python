@@ -21,7 +21,7 @@ def _convert_to_degress(value: list) -> float:
             float(value[2][0]) / float(value[2][1]) / 3600) * (1 if True else -1)
 
 def main():
-    data = Image.open('temp/03.jpg')._getexif()
+    data = Image.open('src/03.jpg')._getexif()
     b = retrieve_coordinates_block(data)
     print_info_about(_convert_to_degress(b[2]),
                      _convert_to_degress(b[4]))
